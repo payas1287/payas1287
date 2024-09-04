@@ -17,8 +17,9 @@ console.log("merhaba");
 
 
   return (
-    <div>
+    <div className='container text-center mt-4'>
       
+
     </div>
   )
 }
