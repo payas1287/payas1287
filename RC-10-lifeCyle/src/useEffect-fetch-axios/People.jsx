@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 
 const People = () => {
-  return <div>People</div>;
-};
 
-export default People;
+  const[people,setPeople]=useState([])
+
+
+  //! 1.yol fetch then yapısı
+useEffect(()=>{
+fetch("https://reqres.in/api/users")
+  .then((res) => res.json())
+  .then((veri) => setPeople(veri.data));
+},[])
+
+console.log("merhaba");
+
+
+
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default People
