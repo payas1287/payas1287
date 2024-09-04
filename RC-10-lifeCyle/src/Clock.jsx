@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Clock = () => {
-  return (
-    <div>Clock</div>
-  )
-}
+  return <div>Clock</div>;
+};
 
-export default Clock
+export default Clock;
