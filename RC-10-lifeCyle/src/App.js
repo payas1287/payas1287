@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import LifeCycleMethods from "./LifeCycleMethods";
+import Clock from "./Clock";
+import People from "./useEffect-fetch-axios/People";
 const App = () => {
   const [goster, setGoster] = useState(true);
 
@@ -12,6 +14,8 @@ const App = () => {
       </button>
 
       {goster && <LifeCycleMethods />}
+      {goster && <Clock />}
+      {goster && <People />}
     </div>
   );
 };
