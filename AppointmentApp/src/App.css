@@ -1,0 +1,15 @@
+.doctor-img{
+    max-height: 130px;
+    border-radius: 1rem;
+    transition: transform .5s
+}
+
+.doctor-img:hover{
+    border: 2px solid red;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.consultedTrue{
+    background-color: red;
+}
