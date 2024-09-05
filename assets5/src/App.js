@@ -1,16 +1,13 @@
 import React from "react";
 import mailSvg from "./assets/mail.svg";
-import manSvg from "./assets/man.svg";
-import womanSvg from "./assets/woman.svg";
-import manAgeSvg from "./assets/growing-up-man.svg";
-import womanAgeSvg from "./assets/growing-up-woman.svg";
+
 import mapSvg from "./assets/map.svg";
 import phoneSvg from "./assets/phone.svg";
 import padlockSvg from "./assets/padlock.svg";
 import cwSvg from "./assets/cw.svg";
 import Footer from "./components/footer/Footer";
 
-const url = "https://randomuser.me/api/";
+// const url = "https://randomuser.me/api/";
 const defaultImage = "https://randomuser.me/api/portraits/men/75.jpg";
 
 function App() {
@@ -26,7 +23,7 @@ function App() {
           <p className="user-value"></p>
           <div className="values-list">
             <button className="icon" data-label="name">
-              <img src={womanSvg} alt="user" id="iconImg" />
+              <img src={} alt="user" id="iconImg" />
             </button>
             <button className="icon" data-label="email">
               <img src={mailSvg} alt="mail" id="iconImg" />
