@@ -1,6 +1,5 @@
 import React from "react";
 import mailSvg from "./assets/mail.svg";
-
 import mapSvg from "./assets/map.svg";
 import phoneSvg from "./assets/phone.svg";
 import padlockSvg from "./assets/padlock.svg";
@@ -23,13 +22,13 @@ function App() {
           <p className="user-value"></p>
           <div className="values-list">
             <button className="icon" data-label="name">
-              <img src={} alt="user" id="iconImg" />
+              <img src={cwSvg} alt="user" id="iconImg" />
             </button>
             <button className="icon" data-label="email">
               <img src={mailSvg} alt="mail" id="iconImg" />
             </button>
             <button className="icon" data-label="age">
-              <img src={womanAgeSvg} alt="age" id="iconImg" />
+              <img src={mailSvg} alt="age" id="iconImg" />
             </button>
             <button className="icon" data-label="street">
               <img src={mapSvg} alt="map" id="iconImg" />
