@@ -47,7 +47,7 @@ const EditBilgi = ({ editItem, setEditItem, putBilgi }) => {
                 type="text"
                 className="form-control"
                 id="image"
-                placeholder="Kitap Resmi"
+                placeholder="Kapak Resmi"
                 value={editItem.image}
                 onChange={(e) =>
                   setEditItem({ ...editItem, image: e.target.value })
@@ -61,41 +61,41 @@ const EditBilgi = ({ editItem, setEditItem, putBilgi }) => {
               <input
                 type="text"
                 className="form-control"
-                id="desc"
+                id="genre"
                 placeholder="Kitabın Adı"
-                value={editItem.title}
+                value={editItem.genre}
                 onChange={(e) =>
-                  setEditItem({ ...editItem, title: e.target.value })
+                  setEditItem({ ...editItem, genre: e.target.value })
                 }
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="desc" className="form-label">
+              <label htmlFor="author" className="form-label">
                 Description
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="desc"
-                placeholder="Enter your Description"
+                id="author"
+                placeholder="Yazarın Adı"
                 value={editItem.description}
                 onChange={(e) =>
-                  setEditItem({ ...editItem, title: e.target.value })
+                  setEditItem({ ...editItem, author: e.target.value })
                 }
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="desc" className="form-label">
+              <label htmlFor="ısbn" className="form-label">
                 Description
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="desc"
-                placeholder="Enter your Description"
+                id="ısbn"
+                placeholder="ISBN"
                 value={editItem.description}
                 onChange={(e) =>
-                  setEditItem({ ...editItem, title: e.target.value })
+                  setEditItem({ ...editItem, ISBN: e.target.value })
                 }
               />
             </div>
