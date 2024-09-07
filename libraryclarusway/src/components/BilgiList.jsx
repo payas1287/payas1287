@@ -1,28 +1,38 @@
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
-import React from "react";
 import EditBilgi from "./EditBilgi";
+import { useState } from "react";
 
-export const BilgiList = ({ library, deleteBilgi, putBilgi }) => {
+const BilgiList = ({ tutorials, deleteBilgi,putBilgi }) => {
+
+
+const[editItem,setEditItem]=useState("")
+
   return (
     <div className="container mt-4">
       <table className="table table-striped">
         <thead>
           <tr>
-            <th scope="col">#id</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Kapak Resmi</th>
+            <th scope="col">Kitap Adı</th>
+            <th scope="col">Yazar Adı</th>
+            <th scope="col">Tür</th>
+            <th scope="col">Yayınlanma Yılı</th>
             <th scope="col" className="text-center">
               Edit
             </th>
           </tr>
         </thead>
         <tbody>
-          {library.map(({ id, title, description }) => (
+          {tutorials.map(({ title, author, ISBN, image, genre, publicationYear, id }) => (
             <tr key={id}>
-              <th>{id}</th>
+              <th>{ISBN}</th>
+              <td>{image}</td>
               <td>{title}</td>
-              <td>{description}</td>
+              <td>{author}</td>
+              <td>{genre}</td>
+              <td>{publicationYear}</td>
               <td className="text-center ">
                 <AiFillDelete
                   type="button"
@@ -37,15 +47,16 @@ export const BilgiList = ({ library, deleteBilgi, putBilgi }) => {
                   size={20}
                   type="button"
                   className="me-2 text-warning cursor-pointer"
-                  //   onClick={() => setEditItem({ id, title, description })}
+                  onClick={() => setEditItem({title, author, ISBN, image, genre, publicationYear, id })}
                 />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <EditBilgi />
+      <EditBilgi editItem={editItem} setEditItem={setEditItem} putBilgi={putBilgi} />
     </div>
   );
 };
+
 export default BilgiList;

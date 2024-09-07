@@ -1,38 +1,70 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import AddBilgi from "../components/AddBilgi";
-import BilgiList from "../components/BilgiList";
+import React, { useEffect, useState } from 'react'
+import AddBilgi from '../components/AddBilgi'
+import BilgiList from '../components/BilgiList'
+import axios from "axios"
 
 const Home = () => {
-  const [library, setLibrary] = useState([]);
-  const url = "https://clarus-library-api.vercel.app/";
-  const getBilgiler = async () => {
-    const res = await axios.get(url);
-    setLibrary(res.data);
-  };
-  useEffect(() => {
-    getBilgiler();
-  }, []);
+const[tutorials,setTutorials]=useState([])
 
-  const deleteBilgi = async(id)=>{
-    await axios.delete (`${url}${id}/`)
-    getBilgiler()
+const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
 
-  }
+//! GET-READ
 
-  const putBilgi =async(editItem)=>{
-    await axios.put(`${url}${editItem.id}/`, editItem)
-    getBilgiler()
-  }
+const getBilgiler=async()=>{
+
+   const res= await axios.get(url)
+
+  //  console.log(res.data);
+   
+setTutorials(res.data)
+
+}
+
+useEffect(()=>{
+  getBilgiler();
+},[])
 
 
+//!DELETE
+
+const deleteBilgi=async(id)=>{
+
+await axios.delete(`${url}${id}/`)
+
+// istenen veri database den silindikten sonra hemen ekranda yeni diziyi görebilmek için getBilgiler i çağırdık
+getBilgiler()
+
+}
+
+//! POST - VERİ GÖNDERME
+
+const postBilgiler=async(yeniVeri)=>{
+await axios.post(url, yeniVeri )
+
+getBilgiler()
+
+}
+
+
+
+//!PUT - UPDATE
+
+const putBilgi=async(editItem)=>{
+
+  console.log(editItem);
+  
+await axios.put(`${url}${editItem.id}/`,editItem)
+
+
+getBilgiler()
+}
 
   return (
     <div>
-        <AddBilgi  />
-      <BilgiList library={library} deleteBilgi={deleteBilgi} putBilgi={putBilgi} />
+      <AddBilgi postBilgiler={postBilgiler}/>
+      <BilgiList deleteBilgi={deleteBilgi} tutorials={tutorials}  putBilgi={putBilgi}/>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
