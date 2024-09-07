@@ -6,7 +6,7 @@ import axios from "axios"
 const Home = () => {
 const[tutorials,setTutorials]=useState([])
 
-const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+const url = "https://clarus-library-api.vercel.app/";
 
 //! GET-READ
 

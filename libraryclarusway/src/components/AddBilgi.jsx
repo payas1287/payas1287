@@ -16,6 +16,10 @@ const AddBilgi = ({ postBilgiler }) => {
 
     setBaslik("");
     setDesc("");
+    setIsbn("");
+    setResim("");
+    setTür("");
+    setTarih("");
   };
 
   return (
