@@ -3,7 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import EditBilgi from "./EditBilgi";
 import { useState } from "react";
 
-const BilgiList = ({ tutorials, deleteBilgi,putBilgi }) => {
+const BilgiList = ({ vercel, deleteBilgi,putBilgi }) => {
 
 
 const[editItem,setEditItem]=useState("")
@@ -25,7 +25,7 @@ const[editItem,setEditItem]=useState("")
           </tr>
         </thead>
         <tbody>
-          {tutorials.map(({ title, author, ISBN, image, genre, publicationYear, id }) => (
+          {vercel.map(({ title, author, ISBN, image, genre, publicationYear, id }) => (
             <tr key={id}>
               <th>{ISBN}</th>
               <td>{image}</td>

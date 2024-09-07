@@ -1,70 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import AddBilgi from '../components/AddBilgi'
-import BilgiList from '../components/BilgiList'
-import axios from "axios"
+import React, { useEffect, useState } from "react";
+import AddBilgi from "../components/AddBilgi";
+import BilgiList from "../components/BilgiList";
+import axios from "axios";
 
 const Home = () => {
-const[tutorials,setTutorials]=useState([])
+  const [library, setLibrary] = useState([]);
+  const url = "https://clarus-library-api.vercel.app/";
 
-const url = "https://clarus-library-api.vercel.app/";
+  const getBilgiler = async () => {
 
-//! GET-READ
+    const res = await axios.get(url);
+    setLibrary(res.data);
+  };
+  useEffect(() => {
+    getBilgiler();
+  }, []);
 
-const getBilgiler=async()=>{
+  const postBilgiler = async (yeniVeri) => {
+    await axios.post(url, yeniVeri);
+    getBilgiler();
+  };
 
-   const res= await axios.get(url)
+  const putBilgi = async (editItem) => {
+    console.log(editItem);
+    await axios.put(`${url}${editItem.id}/`, editItem)
+  getBilgiler()
+  };
+  const deleteBilgi=async(id)=>{
 
-  //  console.log(res.data);
-   
-setTutorials(res.data)
-
-}
-
-useEffect(()=>{
-  getBilgiler();
-},[])
-
-
-//!DELETE
-
-const deleteBilgi=async(id)=>{
-
-await axios.delete(`${url}${id}/`)
-
-// istenen veri database den silindikten sonra hemen ekranda yeni diziyi görebilmek için getBilgiler i çağırdık
-getBilgiler()
-
-}
-
-//! POST - VERİ GÖNDERME
-
-const postBilgiler=async(yeniVeri)=>{
-await axios.post(url, yeniVeri )
-
-getBilgiler()
-
-}
-
-
-
-//!PUT - UPDATE
-
-const putBilgi=async(editItem)=>{
-
-  console.log(editItem);
-  
-await axios.put(`${url}${editItem.id}/`,editItem)
-
-
-getBilgiler()
-}
-
+    await axios.delete(`${url}${id}/`)
+    
+    // istenen veri database den silindikten sonra hemen ekranda yeni diziyi görebilmek için getBilgiler i çağırdık
+    getBilgiler()
+    
+    }
   return (
     <div>
       <AddBilgi postBilgiler={postBilgiler}/>
-      <BilgiList deleteBilgi={deleteBilgi} tutorials={tutorials}  putBilgi={putBilgi}/>
+      <BilgiList deleteBilgi={deleteBilgi} library={library} putBilgi={putBilgi} />
     </div>
   )
-}
-
-export default Home
+};
+export default Home;
