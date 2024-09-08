@@ -4,9 +4,9 @@ import BilgiList from '../components/BilgiList'
 import axios from "axios"
 
 const Home = () => {
-const[tutorials,setTutorials]=useState([])
+const[library,setLibrary]=useState([])
 
-const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+const url = "https://clarus-library-api.vercel.app/";
 
 //! GET-READ
 
@@ -62,7 +62,7 @@ getBilgiler()
   return (
     <div>
       <AddBilgi postBilgiler={postBilgiler}/>
-      <BilgiList deleteBilgi={deleteBilgi} tutorials={tutorials}  putBilgi={putBilgi}/>
+      <BilgiList deleteBilgi={deleteBilgi} tutorials={library}  putBilgi={putBilgi}/>
     </div>
   )
 }

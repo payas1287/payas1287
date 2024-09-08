@@ -4,15 +4,20 @@ const AddBilgi = ({postBilgiler}) => {
 
 const[baslik,setBaslik]=useState("")
 const[desc,setDesc]=useState("")
+const[ısbn, setIsbn]= useState("")
+const[image, setImage]=useState("")
+const [tür, setTür] = useState("")
+const[date, setDate] = useState("")
   
 const handleSubmit=(e)=>{
 e.preventDefault()
 
 // database e yolla
-postBilgiler({title:baslik, description:desc, })
+postBilgiler({title:baslik, description:desc, =ısbn})
 
 setBaslik("")
 setDesc("")
+setIsbn("")
 
 }
 
