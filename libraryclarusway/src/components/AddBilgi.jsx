@@ -9,7 +9,7 @@ const handleSubmit=(e)=>{
 e.preventDefault()
 
 // database e yolla
-postBilgiler({title:baslik, description:desc})
+postBilgiler({title:baslik, description:desc, })
 
 setBaslik("")
 setDesc("")
@@ -22,7 +22,7 @@ setDesc("")
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
-            Title
+            Kitabın Adı
           </label>
           <input
             type="text"
@@ -36,7 +36,7 @@ setDesc("")
         </div>
         <div className="mb-3">
           <label htmlFor="desc" className="form-label">
-            Description
+            Yazarın Adı
           </label>
           <input
             type="text"
