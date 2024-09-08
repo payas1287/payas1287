@@ -3,8 +3,10 @@ import { FaEdit } from "react-icons/fa";
 import EditBilgi from "./EditBilgi";
 import { useState } from "react";
 
-const BilgiList = ({ vercel, deleteBilgi,putBilgi }) => {
-
+const BilgiList = ({ tutorials, deleteBilgi,putBilgi }) => {
+  // const deleteBilgi = async (id) => {
+  //   await axios.delete(`${url}${id}/`);
+  // };
 
 const[editItem,setEditItem]=useState("")
 
@@ -13,26 +15,20 @@ const[editItem,setEditItem]=useState("")
       <table className="table table-striped">
         <thead>
           <tr>
-            <th scope="col">ISBN</th>
-            <th scope="col">Kapak Resmi</th>
-            <th scope="col">Kitap Adı</th>
-            <th scope="col">Yazar Adı</th>
-            <th scope="col">Tür</th>
-            <th scope="col">Yayınlanma Yılı</th>
+            <th scope="col">#id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
             <th scope="col" className="text-center">
               Edit
             </th>
           </tr>
         </thead>
         <tbody>
-          {vercel.map(({ title, author, ISBN, image, genre, publicationYear, id }) => (
+          {tutorials.map(({ id, title, description }) => (
             <tr key={id}>
-              <th>{ISBN}</th>
-              <td>{image}</td>
+              <th>{id}</th>
               <td>{title}</td>
-              <td>{author}</td>
-              <td>{genre}</td>
-              <td>{publicationYear}</td>
+              <td>{description}</td>
               <td className="text-center ">
                 <AiFillDelete
                   type="button"
@@ -47,7 +43,7 @@ const[editItem,setEditItem]=useState("")
                   size={20}
                   type="button"
                   className="me-2 text-warning cursor-pointer"
-                  onClick={() => setEditItem({title, author, ISBN, image, genre, publicationYear, id })}
+                  onClick={() => setEditItem({ id, title, description })}
                 />
               </td>
             </tr>
