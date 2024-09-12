@@ -1,6 +1,7 @@
 // import Typography from "./components/Typography"
-
-import SpacingAndSizing from "./components/SpacingAndSizing";
+// import SpacingAndSizing from "./components/SpacingAndSizing";
+import HoverAndFocus from "./components/HoverAndFocus";
+// 
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
         Merhaba Tailwind
       </h1>
       {/* <Typography/> */}
-      <SpacingAndSizing/>
+      {/* <SpacingAndSizing/> */}
+      <HoverAndFocus/>
     </div>
   );
 }
