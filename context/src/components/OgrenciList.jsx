@@ -13,7 +13,7 @@ const OgrenciList = () => {
       </div>
      
 
-      <h2 style={{ textAlign: "center", background: "pink" }}>
+      <h2 style={{ textAlign: "center", background: "pink", color: "blue" }}>
         ÖĞRENCİ LİSTESİ
       </h2>
 
