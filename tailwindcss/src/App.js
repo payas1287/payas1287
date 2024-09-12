@@ -1,7 +1,8 @@
 // import Typography from "./components/Typography"
 // import SpacingAndSizing from "./components/SpacingAndSizing";
-import HoverAndFocus from "./components/HoverAndFocus";
-// 
+// import FlexAndResponsive from "./components/FlexAndResponsive";
+// import HoverAndFocus from "./components/HoverAndFocus";
+import Navbar from "./components/Navbar" 
 
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
       </h1>
       {/* <Typography/> */}
       {/* <SpacingAndSizing/> */}
-      <HoverAndFocus/>
+      {/* <HoverAndFocus/> */}
+      {/* <FlexAndResponsive/> */}
+      <Navbar/>
     </div>
   );
 }
