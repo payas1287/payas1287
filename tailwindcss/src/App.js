@@ -1,4 +1,6 @@
-import Typography from "./components/Typography"
+// import Typography from "./components/Typography"
+
+import SpacingAndSizing from "./components/SpacingAndSizing";
 
 
 function App() {
@@ -7,7 +9,8 @@ function App() {
       <h1 className="text-2xl text-center text-purple-700 font-bold">
         Merhaba Tailwind
       </h1>
-      <Typography/>
+      {/* <Typography/> */}
+      <SpacingAndSizing/>
     </div>
   );
 }
