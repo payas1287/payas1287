@@ -19,6 +19,11 @@ const Typography = () => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur odit alias aut minus ducimus quisquam repellendus, iusto quis quae fuga rem omnis natus sunt quasi unde quibusdam quos? Dignissimos consequuntur corporis blanditiis mollitia itaque accusantium, illo id, alias, vero recusandae nisi quo atque iure facilis.
         </p>
     </article>
+    <p className="font-bold text-center underline">Merhaba</p>
+    <p className="font-bold text-center line-through">Merhaba</p>
+    <p className="font-bold text-center uppercase">Merhaba</p>
+    <p className="font-bold text-center lowercase">Merhaba</p>
+    <p className="font-bold text-center text-[#7EACB5] bg-blue-200">Merhaba</p>
 
   </div>;
 };
