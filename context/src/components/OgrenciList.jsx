@@ -1,5 +1,7 @@
 import React from "react";
 import OgrenciItem from "./OgrenciItem";
+
+
 const OgrenciList = () => {
   return (
     <div>
