@@ -5,18 +5,22 @@ const AddBilgi = ({postBilgiler}) => {
 const[baslik,setBaslik]=useState("")
 const[yazar, setYazar]=useState("")
 const [isbn, setIsbn]=useState("")
-const [image, setImage]=usestate("")
+const [image, setImage]=useState("")
+const [tür,setTür]=useState("")
+const [date,setDate]=useState("")
   
 const handleSubmit=(e)=>{
 e.preventDefault()
 
 // database e yolla
-postBilgiler({title:baslik, author:yazar, kod:isbn, resim:image})
+postBilgiler({title:baslik, author:yazar, kod:isbn, resim:image, cins:tür, tarih:date})
 
 setBaslik("")
 setYazar("")
 setIsbn("")
 setImage("")
+setTür("")
+setDate("")
 
 }
 
@@ -87,11 +91,11 @@ setImage("")
           <input
             type="text"
             className="form-control"
-            id="desc"
+            id="cins"
             placeholder="Tür"
             required
-            onChange={(e) => setDesc(e.target.value)}
-            value={desc}
+            onChange={(e) => setTür(e.target.value)}
+            value={tür}
           />
         </div>
         <div className="mb-3">
@@ -101,11 +105,11 @@ setImage("")
           <input
             type="text"
             className="form-control"
-            id="desc"
+            id="tarih"
             placeholder="Yayınlanma Tarihi (Yılı)"
             required
-            onChange={(e) => setDesc(e.target.value)}
-            value={desc}
+            onChange={(e) => setDate(e.target.value)}
+            value={date}
           />
         </div>
         <button type="submit" className="btn btn-danger mb-4">
