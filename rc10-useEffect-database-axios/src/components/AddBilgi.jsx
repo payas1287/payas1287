@@ -3,16 +3,20 @@ import { useState } from "react";
 const AddBilgi = ({postBilgiler}) => {
 
 const[baslik,setBaslik]=useState("")
-const[desc,setDesc]=useState("")
+const[yazar, setYazar]=useState("")
+const [isbn, setIsbn]=useState("")
+const [image, setImage]=usestate("")
   
 const handleSubmit=(e)=>{
 e.preventDefault()
 
 // database e yolla
-postBilgiler({title:baslik, description:desc})
+postBilgiler({title:baslik, author:yazar, kod:isbn, resim:image})
 
 setBaslik("")
-setDesc("")
+setYazar("")
+setIsbn("")
+setImage("")
 
 }
 
@@ -22,13 +26,13 @@ setDesc("")
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
-            Title
+            Kitab Adı
           </label>
           <input
             type="text"
             className="form-control"
             id="title"
-            placeholder="Enter your title"
+            placeholder="Kitab Adı"
             required
             onChange={(e) => setBaslik(e.target.value)}
             value={baslik}
@@ -36,13 +40,69 @@ setDesc("")
         </div>
         <div className="mb-3">
           <label htmlFor="desc" className="form-label">
-            Description
+            Yazar Adı
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="author"
+            placeholder="Yazarın Adı"
+            required
+            onChange={(e) => setYazar(e.target.value)}
+            value={yazar}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">
+            ISBN
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="kod"
+            placeholder="ISBN"
+            required
+            onChange={(e) => setIsbn(e.target.value)}
+            value={isbn}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">
+            Kapak Resmi
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="resim"
+            placeholder="Kapak Resmi"
+            required
+            onChange={(e) => setImage(e.target.value)}
+            value={image}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">
+            Tür
           </label>
           <input
             type="text"
             className="form-control"
             id="desc"
-            placeholder="Enter your Description"
+            placeholder="Tür"
+            required
+            onChange={(e) => setDesc(e.target.value)}
+            value={desc}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="desc" className="form-label">
+          Yayınlanma Tarihi(Yılı)
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="desc"
+            placeholder="Yayınlanma Tarihi (Yılı)"
             required
             onChange={(e) => setDesc(e.target.value)}
             value={desc}
