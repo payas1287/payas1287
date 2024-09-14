@@ -3,12 +3,12 @@ import { FaEdit } from "react-icons/fa";
 import EditBilgi from "./EditBilgi";
 import { useState } from "react";
 
-const BilgiList = ({ library, deleteBilgi, putBilgi }) => {
+const BilgiList = ({ tutorials, deleteBilgi,putBilgi }) => {
   // const deleteBilgi = async (id) => {
   //   await axios.delete(`${url}${id}/`);
   // };
 
-  const [editItem, setEditItem] = useState("");
+const[editItem,setEditItem]=useState("")
 
   return (
     <div className="container mt-4">
@@ -18,14 +18,13 @@ const BilgiList = ({ library, deleteBilgi, putBilgi }) => {
             <th scope="col">#id</th>
             <th scope="col">Title</th>
             <th scope="col">Description</th>
-
             <th scope="col" className="text-center">
               Edit
             </th>
           </tr>
         </thead>
         <tbody>
-          {library.map(({ id, title, description }) => (
+          {tutorials.map(({ id, title, description }) => (
             <tr key={id}>
               <th>{id}</th>
               <td>{title}</td>
@@ -51,11 +50,7 @@ const BilgiList = ({ library, deleteBilgi, putBilgi }) => {
           ))}
         </tbody>
       </table>
-      <EditBilgi
-        editItem={editItem}
-        setEditItem={setEditItem}
-        putBilgi={putBilgi}
-      />
+      <EditBilgi editItem={editItem} setEditItem={setEditItem} putBilgi={putBilgi} />
     </div>
   );
 };
