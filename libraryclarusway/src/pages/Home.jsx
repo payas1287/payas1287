@@ -62,7 +62,7 @@ getBilgiler()
   return (
     <div>
       <AddBilgi postBilgiler={postBilgiler}/>
-      <BilgiList deleteBilgi={deleteBilgi} tutorials={library}  putBilgi={putBilgi}/>
+      <BilgiList deleteBilgi={deleteBilgi} library={library}  putBilgi={putBilgi}/>
     </div>
   )
 }

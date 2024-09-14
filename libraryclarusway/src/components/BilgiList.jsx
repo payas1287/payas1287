@@ -3,7 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import EditBilgi from "./EditBilgi";
 import { useState } from "react";
 
-const BilgiList = ({ tutorials, deleteBilgi,putBilgi }) => {
+const BilgiList = ({ library, deleteBilgi,putBilgi }) => {
   // const deleteBilgi = async (id) => {
   //   await axios.delete(`${url}${id}/`);
   // };
@@ -24,7 +24,7 @@ const[editItem,setEditItem]=useState("")
           </tr>
         </thead>
         <tbody>
-          {tutorials.map(({ id, title, description }) => (
+          {library.map(({ id, title, description }) => (
             <tr key={id}>
               <th>{id}</th>
               <td>{title}</td>
