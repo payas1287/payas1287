@@ -16,7 +16,7 @@ const getBilgiler=async()=>{
 
   //  console.log(res.data);
    
-setTutorials(res.data)
+setLibrary(res.data)
 
 }
 

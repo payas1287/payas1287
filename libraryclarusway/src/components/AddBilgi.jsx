@@ -13,11 +13,14 @@ const handleSubmit=(e)=>{
 e.preventDefault()
 
 // database e yolla
-postBilgiler({title:baslik, description:desc, =ısbn})
+postBilgiler({title:baslik, description:desc, ısbn:ısbn, image:image, tür:tür, date:date })
 
 setBaslik("")
 setDesc("")
 setIsbn("")
+setImage("")
+setTür("")
+setDate("")
 
 }
 
