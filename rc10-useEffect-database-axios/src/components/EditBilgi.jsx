@@ -62,7 +62,7 @@ const EditBilgi = ({ editItem, setEditItem, putBilgi }) => {
               data-bs-dismiss="modal"
               onClick={()=>putBilgi(editItem)}
             >
-              Save
+              save
             </button>
           </div>
         </div>
