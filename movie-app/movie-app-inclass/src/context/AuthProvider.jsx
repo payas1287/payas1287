@@ -3,6 +3,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../auth/firebase";
@@ -24,11 +25,18 @@ const AuthProvider = ({ children }) => {
     userObserver();
   }, []);
 
-  const createUser = async (email, password) => {
+  const createUser = async (email, password, displayName) => {
     try {
       //? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
-      await createUserWithEmailAndPassword(auth, email, password);
-
+      let userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await updateProfile(auth.currentUser, {
+        displayName,
+        // displayName: displayName
+      });
       navigate("/");
       toastSuccessNotify("Registered successfully");
     } catch (error) {
@@ -42,8 +50,11 @@ const AuthProvider = ({ children }) => {
   const signIn = async (email, password) => {
     try {
       //? mevcut kullanıcının giriş yapması için kullanılan firebase metodu
-      await signInWithEmailAndPassword(auth, email, password);
-
+      let userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       navigate("/");
       toastSuccessNotify("Logged in successfully");
     } catch (error) {
