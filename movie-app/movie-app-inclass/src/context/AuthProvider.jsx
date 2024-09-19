@@ -32,6 +32,7 @@ import {
           email,
           password
         );
+        console.log(userCredential)
         navigate("/");
         toastSuccessNotify("Registered successfully");
       } catch (error) {
@@ -50,6 +51,7 @@ import {
           email,
           password
         );
+        console.log(userCredential)
         navigate("/");
         toastSuccessNotify("Logged in successfully");
       } catch (error) {
