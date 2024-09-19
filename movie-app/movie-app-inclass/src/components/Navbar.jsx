@@ -39,7 +39,7 @@ export default function Navbar() {
                   <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <span className="sr-only">Open user menu</span>
                     <img
-                      alt=""
+                      alt="avatar"
                       src={currentUser?.photoURL || avatar}
                       className="h-8 w-8 rounded-full"
                     />
