@@ -24,7 +24,7 @@ const MovieDetail = () => {
       .get(videoUrl)
       .then((res) => setVideoKey(res.data.results[0].key))
       .catch((err) => console.log(err));
-  }, []);
+  }, [movieDetailBaseUrl, videoUrl]);
 
   const {
     title,
