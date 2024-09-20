@@ -11,7 +11,7 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
   const navigate = useNavigate();
 
   const getVoteClass = () => {
-    if (vote_average >= 8) {
+    if (vote_average >= 7) {
       return "green"; 
     } else if (vote_average >= 6) {
       return "orange";
