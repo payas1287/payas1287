@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
   const createUser = async (email, password, displayName) => {
     try {
       //? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
-      let userCredential = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         auth,
         email,
         password
@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
   const signIn = async (email, password) => {
     try {
       //? mevcut kullanıcının giriş yapması için kullanılan firebase metodu
-      let userCredential = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         email,
         password
