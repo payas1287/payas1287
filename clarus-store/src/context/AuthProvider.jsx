@@ -11,6 +11,7 @@ const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   console.log(user);
   const login = (info) => {
+    
     setUser(info);
     navigate("/dashboard");
   };
