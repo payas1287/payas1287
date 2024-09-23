@@ -4,7 +4,7 @@ import todoReducer from "./reducers/todoReducer";
 
 
 const topluReducer = combineReducers({
-    counterReducer:counterReducer,
+    counterReducer: counterReducer,
     todoReducer: todoReducer
 
 })
