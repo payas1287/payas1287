@@ -9,6 +9,8 @@ const Counter = () => {
       <h2> </h2>
       <div>
         <button></button>
+        <button></button>
+        <button></button>
       </div>
     </div>
   )
