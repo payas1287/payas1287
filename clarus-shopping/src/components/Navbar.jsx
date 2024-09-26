@@ -18,7 +18,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-function ResponsiveAppBar() {
+function Navbar() {
   return (
     <AppBar position="static">
       <Container maxWidth="xxl">
@@ -43,4 +43,4 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default Navbar;

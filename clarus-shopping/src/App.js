@@ -1,13 +1,7 @@
-import Navbar from "./components/Navbar"
-import CategoryBar from "./components/CategoryBar"
+import Home from "./pages/Home";
 
 function App() {
-  return (
-    <div className="App">
-   <Navbar />
-   <CategoryBar />
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
