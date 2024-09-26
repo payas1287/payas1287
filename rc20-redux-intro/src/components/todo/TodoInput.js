@@ -4,9 +4,14 @@ import { ekle } from "../../redux/actions/todoActions";
 
 const TodoInput = () => {
   const [todo, setTodo] = useState("");
+
   const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //ekle fonk ihtiyaç var
+
     dispatch(ekle(todo));
   };
 
