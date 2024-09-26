@@ -31,20 +31,6 @@
   margin: 10px;
 }
 
-.clear-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.clear-button {
-  padding: 10px;
-  font-size: 1rem;
-  background-color: red;
-  color: white;
-  border-radius: 5px;
-}
-
 .delete-logo {
   width: 40px;
   margin: 10px;
