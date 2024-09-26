@@ -1,9 +1,10 @@
 import React from "react";
 import Counter from "./components/counter/Counter";
+import Todo from "./components/todo/Todo";
 import "./App.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import Todo from "./components/todo/Todo";
+
 
 const App = () => {
   return (
