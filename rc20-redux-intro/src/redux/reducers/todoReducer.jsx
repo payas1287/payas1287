@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const todoReducer = () => {
-  return (
-    <div>todoReducer</div>
-  )
-}
+  return <div>todoReducer</div>;
+};
 
-export default todoReducer
+export default todoReducer;

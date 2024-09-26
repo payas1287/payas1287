@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const counterReducer = () => {
-  return (
-    <div>counterReducer</div>
-  )
-}
+  return <div>counterReducer</div>;
+};
 
-export default counterReducer
+export default counterReducer;

@@ -1,5 +1,5 @@
-import React from 'react'
-import "./counter.css"
+import React from "react";
+import "./counter.css";
 
 const Counter = () => {
   return (
@@ -13,7 +13,7 @@ const Counter = () => {
         <button></button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Counter
+export default Counter;
