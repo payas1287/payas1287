@@ -1,3 +1,6 @@
+//!Mutfak
+
+
 // const counterReducer = (state = { sayac: 0, text1: "" }, action1) => {
 const counterReducer = (
   state = { sayac: 0, text1: "" },

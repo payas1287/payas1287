@@ -1,3 +1,6 @@
+//! Müşteri
+
+
 import React from "react";
 import "./counter.css";
 import { useDispatch, useSelector } from "react-redux";
