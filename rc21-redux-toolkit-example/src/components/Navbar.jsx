@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { kullaniciSil } from "../features/yetkiSlice";
 
 const Navbar = () => {
-  const {email} = useSelector((state) => state.yetkiSlice)
+  const { email } = useSelector((state) => state.yetkiSlice);
+
   const dispatch = useDispatch();
+
   const signOut = () => {
     dispatch(kullaniciSil());
   };
@@ -22,15 +24,13 @@ const Navbar = () => {
             Clarusway News
           </Typography>
 
-          {
-            email ? (<Button color="inherit" onClick={signOut}>
-            LogOut
-          </Button>) : (<Button color="inherit">
-            LogIn
-          </Button>)
-          }
-
-         
+          {email ? (
+            <Button color="inherit" onClick={signOut}>
+              LogOut
+            </Button>
+          ) : (
+            <Button color="inherit">LogIn</Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>

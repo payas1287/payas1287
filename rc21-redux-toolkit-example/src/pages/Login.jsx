@@ -1,30 +1,26 @@
-import React from "react";
-import {
-  Avatar,
-  Box,
-  Button,
-  Container,
-  Link,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { kullaniciOlustur } from "../features/yetkiSlice";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import {Avatar, Box, Button, Container, Link, TextField, Typography} from "@mui/material";
+import { useDispatch, useSelector } from 'react-redux';
+import { kullaniciOlustur } from '../features/yetkiSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  let { email, password } = useSelector((state) => state.yetkiSlice);
-  const navigate = useNavigate();
 
-  const dispatch = useDispatch();
+let {email,password}=useSelector((state)=>state.yetkiSlice)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(kullaniciOlustur(email, password));
+const navigate=useNavigate()
 
-    navigate("/");
-  };
+const dispatch=useDispatch()
 
+
+const handleSubmit=(e)=>{
+e.preventDefault()
+
+ dispatch( kullaniciOlustur({email,password}))
+
+ navigate("/")
+
+}
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -91,6 +87,6 @@ const Login = () => {
       </Typography>
     </Container>
   );
-};
+}
 
-export default Login;
+export default Login
