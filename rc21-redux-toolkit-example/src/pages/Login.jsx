@@ -1,9 +1,15 @@
-import React from 'react'
-import {Avatar, Box, Button, Container, Link, TextField, Typography} from "@mui/material";
+import React from "react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Container,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 const Login = () => {
-
-
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -35,7 +41,6 @@ const Login = () => {
             name="email"
             autoComplete="email"
             autoFocus
-            
           />
           <TextField
             margin="normal"
@@ -45,7 +50,6 @@ const Login = () => {
             label="Password"
             type="password"
             id="password"
-            
           />
 
           <Button
@@ -70,6 +74,6 @@ const Login = () => {
       </Typography>
     </Container>
   );
-}
+};
 
-export default Login
+export default Login;

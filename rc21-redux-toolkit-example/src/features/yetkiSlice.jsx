@@ -7,20 +7,13 @@ const yetkiSlice = createSlice({
     password: "",
   },
 
-  reducers:{
+  reducers: {
+    kullaniciOlustur: () => {},
 
-    kullaniciOlustur:()=>{
-
-    },
-
-    kullaniciSil:()=>{
-
-    }
-  }
+    kullaniciSil: () => {},
+  },
 });
 
+export const { kullaniciOlustur, kullaniciSil } = yetkiSlice.actions;
 
-export const {kullaniciOlustur,kullaniciSil}=yetkiSlice.actions
-
-
-export default yetkiSlice.reducer
+export default yetkiSlice.reducer;
