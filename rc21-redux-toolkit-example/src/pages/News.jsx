@@ -1,4 +1,3 @@
-
 import {
   Box,
   Button,
@@ -13,29 +12,19 @@ import { getData } from "../features/haberSlice";
 import { useEffect } from "react";
 import loadingGif from "../assets/loading.gif";
 
-
 const News = () => {
+  const dispatch = useDispatch();
+  const { haberler, loading } = useSelector((state) => state.haberSlice);
 
- const dispatch= useDispatch()
-const { haberler,loading } = useSelector((state) => state.haberSlice);
-
- useEffect(()=>{
-
-dispatch(getData());
-
- },[dispatch])
-
-
-
-
-
-
+  useEffect(() => {
+    dispatch(getData());
+  }, [dispatch]);
 
   return (
     <>
       {loading ? (
         <Box display="flex" alignItems="center" justifyContent="center">
-          <img src={loadingGif} alt="" height="800px"/>
+          <img src={loadingGif} alt="" height="800px" />
         </Box>
       ) : (
         <Box
