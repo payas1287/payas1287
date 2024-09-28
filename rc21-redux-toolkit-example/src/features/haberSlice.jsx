@@ -10,13 +10,13 @@ export const getData = createAsyncThunk("haberSlice/getData", async () => {
   return response.data.articles;
 });
 
-// export const haberSlice = createSlice({
-//   name: "haberSlice",
+export const haberSlice = createSlice({
+  name: "haberSlice",
 
-//   initialState: {
-//     haberler: [],
-//     loading: true,
-//   },
+  initialState: {
+    haberler: [],
+    loading: true,
+  },
 
   reducers: {
     clearHaber: () => {},
