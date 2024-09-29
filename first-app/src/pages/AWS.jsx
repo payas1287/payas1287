@@ -18,4 +18,4 @@ const AWS = () => {
   );
 };
 
-export default AWS;
+export default AWS
