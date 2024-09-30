@@ -19,7 +19,7 @@ const Login = () => {
     password: string()
       .required("Şifre zorunludur")
       .min(8, "Şifre en az 8 karekter içermelidir")
-      .max(16, "Şifre en fazla 16 karakler içermelidir")
+      .max(16, "Şifre en fazla 16 karakter içermelidir")
       .matches(/[a-z]+/, "Şifre en az bir küçük harf içermelidir")
       .matches(/[A-Z]+/, "Şifre en az bir büyük harf içermelidir")
       .matches(
@@ -41,6 +41,12 @@ const Login = () => {
           p: 2,
         }}
       >
+        <Grid item xs={12}>
+          <Typography variant="h3" color="primary" align="center">
+            STOCK APP
+          </Typography>
+        </Grid>
+
         <Grid item xs={12} sm={10} md={6}>
           <Avatar
             sx={{
@@ -87,7 +93,7 @@ const Login = () => {
                     variant="outlined"
                     onChange={handleChange}
                     value={values.email}
-                    errro={touched.email && Boolean(errors.email)}
+                    error={touched.email && Boolean(errors.email)}
                     onBlur={handleBlur}
                     helperText={errors.email}
                   />
@@ -114,7 +120,7 @@ const Login = () => {
               </Form>
             )}
           </Formik>
-          <Box sx={{ textAlign: "center", mt: 2}}>
+          <Box sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/register">Do you have not an account?</Link>
           </Box>
         </Grid>
@@ -128,4 +134,4 @@ const Login = () => {
   );
 };
 
-export default Login
+export default Login;
