@@ -1,30 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSLice } from "@reduxjs/toolkit";
 
-const authSlice = createSlice({
+const authSlice = createSLice({
   name: "auth",
-
   initialState: {
     token: "",
-    username: "",
+    usernmae: "",
     loading: "",
     error: "",
   },
   reducers: {
-    fetchStart: (state) => {
-      state.loading = true
+    fetchSrtart: (state) => {
+      state.loading = true;
     },
     loginSuccess: (state, { payload }) => {
-      state.token = payload.token
-      state.username = payload.user.username
-      state.loading = false
+      state.token = payload.token;
+      state.username = payload.user.username;
+      state.loading = false;
     },
     fetchFail: (state) => {
-      state.loading = false
-      state.error = true
+      state.loading = false;
+      state.error = true;
     },
   },
-})
+});
 
-export const { fetchStart, loginSuccess, fetchFail } = authSlice.actions
-export default authSlice.reducer
- 
+export const { fetchStart, loginSuccess, fetchFail } = authSlice.actions;
+export default authSlice.reducer;
