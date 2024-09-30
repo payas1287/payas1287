@@ -32,7 +32,7 @@ const Register = () => {
       .email("Lütfen geçerli email giriniz")
       .required("Email zorunludur"),
   });
-  const navigate = useNavigate();
+  
 
   return (
     <Container maxWidth="lg">
