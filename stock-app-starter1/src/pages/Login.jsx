@@ -9,9 +9,27 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
+import { object, string } from "yup";
+// import { login } from "../services/useApiRequests"
+import useApiRequests from "../services/useApiRequests";
 
 const Login = () => {
-  const loginSchema = {};
+  const { login } = useApiRequests();
+  const loginSchema = object({
+    password: string()
+      .required("Şifre zorunludur")
+      .min(8, "Şifre en az 8 karekter içermelidir")
+      .max(16, "Şifre en fazla 16 karakler içermelidir")
+      .matches(/[a-z]+/, "Şifre en az bir küçük harf içermelidir")
+      .matches(/[A-Z]+/, "Şifre en az bir büyük harf içermelidir")
+      .matches(
+        /[@$!%*?&]+/,
+        "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
+      ),
+    email: string()
+      .email("Lütfen geçerli email giriniz")
+      .required("Email zorunludur"),
+  });
   return (
     <Container maxWidth="lg">
       <Grid
@@ -23,12 +41,6 @@ const Login = () => {
           p: 2,
         }}
       >
-        <Grid item xs={12} mb={3}>
-          <Typography variant="h3" color="primary" align="center">
-            STOCK APP
-          </Typography>
-        </Grid>
-
         <Grid item xs={12} sm={10} md={6}>
           <Avatar
             sx={{
@@ -49,12 +61,22 @@ const Login = () => {
             Login
           </Typography>
           <Formik
-            initialValues={{ email: "", password: "" }}
+            initialValues={{ email: "", pasword: "" }}
             validationSchema={loginSchema}
-            onSubmit={(values, actions) => {}}
-
+            onSubmit={(values, actions) => {
+              login(values);
+              actions.resetForm();
+              actions.setSubmitting(false);
+            }}
           >
-            {({isSubmitting}) => (
+            {({
+              isSubmitting,
+              handleChange,
+              handleBlur,
+              values,
+              touched,
+              errors,
+            }) => (
               <Form>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
@@ -63,6 +85,11 @@ const Login = () => {
                     id="email"
                     type="email"
                     variant="outlined"
+                    onChange={handleChange}
+                    value={values.email}
+                    errro={touched.email && Boolean(errors.email)}
+                    onBlur={handleBlur}
+                    helperText={errors.email}
                   />
                   <TextField
                     label="password"
@@ -70,21 +97,28 @@ const Login = () => {
                     id="password"
                     type="password"
                     variant="outlined"
+                    onChange={handleBlur}
+                    onBlur={handleBlur}
+                    value={values.password}
+                    error={touched.password && Boolean(errors.password)}
+                    helperText={errors.password}
                   />
-                  <Button variant="contained" type="submit">
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
                     Submit
                   </Button>
                 </Box>
               </Form>
             )}
           </Formik>
-
-          <Box sx={{ textAlign: "center", mt: 2 }}>
+          <Box sx={{ textAlign: "center", mt: 2}}>
             <Link to="/register">Do you have not an account?</Link>
           </Box>
         </Grid>
-
-        <Grid item xs={10} sm={7} md={6}>
+        <Grid item xs={10} sm={10} md={6}>
           <Container>
             <img src={image} alt="img" />
           </Container>
@@ -94,4 +128,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login
