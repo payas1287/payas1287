@@ -26,12 +26,12 @@ const useApiRequests = () => {
         `${process.env.REACT_APP_BASE_URL}/auth/login`,
         userData
       )
-      toastSuccessNotify("Login işlemi başarılı")
+      toastSuccessNotify("Login işlemi başarili")
       dispatch(loginSuccess(data))
       navigate("stock")
       console.log(data)
     } catch (error) {
-      toastErrorNotify("Login işlemi başarısız")
+      toastErrorNotify("Login işlemi başarisiz")
       dispatch(fetchFail())
       console.log(error)
     }
