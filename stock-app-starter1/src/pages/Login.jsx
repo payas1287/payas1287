@@ -1,35 +1,38 @@
-import Avatar from "@mui/material/Avatar";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import LockIcon from "@mui/icons-material/Lock";
-import image from "../assets/result.svg";
-import { Link } from "react-router-dom";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
-import { Formik, Form } from "formik";
-import { object, string } from "yup";
+import Avatar from "@mui/material/Avatar"
+import Container from "@mui/material/Container"
+import Grid from "@mui/material/Grid"
+import Typography from "@mui/material/Typography"
+import LockIcon from "@mui/icons-material/Lock"
+import image from "../assets/result.svg"
+import { Link } from "react-router-dom"
+import Box from "@mui/material/Box"
+import TextField from "@mui/material/TextField"
+import { Button } from "@mui/material"
+import { Formik, Form } from "formik"
+import { object, string } from "yup"
 // import { login } from "../services/useApiRequests"
-import useApiRequests from "../services/useApiRequests";
+import useApiRequests from "../services/useApiRequests"
 
 const Login = () => {
-  const { login } = useApiRequests();
+  const { login } = useApiRequests()
+
   const loginSchema = object({
     password: string()
       .required("Şifre zorunludur")
       .min(8, "Şifre en az 8 karekter içermelidir")
-      .max(16, "Şifre en fazla 16 karakter içermelidir")
+      .max(16, "Şifre en fazla 16 karekter içermelidir")
       .matches(/[a-z]+/, "Şifre en az bir küçük harf içermelidir")
       .matches(/[A-Z]+/, "Şifre en az bir büyük harf içermelidir")
       .matches(
         /[@$!%*?&]+/,
         "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
       ),
+
     email: string()
       .email("Lütfen geçerli email giriniz")
       .required("Email zorunludur"),
-  });
+  })
+
   return (
     <Container maxWidth="lg">
       <Grid
@@ -41,7 +44,7 @@ const Login = () => {
           p: 2,
         }}
       >
-        <Grid item xs={12}>
+        <Grid item xs={12} mb={3}>
           <Typography variant="h3" color="primary" align="center">
             STOCK APP
           </Typography>
@@ -66,13 +69,19 @@ const Login = () => {
           >
             Login
           </Typography>
+
           <Formik
-            initialValues={{ email: "", pasword: "" }}
+            initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
             onSubmit={(values, actions) => {
-              login(values);
-              actions.resetForm();
-              actions.setSubmitting(false);
+              //? POST (login)
+              login(values)
+              //? Formu temizleme
+              //? Mesaj (Toast)
+              //? Routing (stock)
+              //? Global state güncellemesi
+              actions.resetForm()
+              actions.setSubmitting(false) //? isSubmitting (Boolean)
             }}
           >
             {({
@@ -103,7 +112,7 @@ const Login = () => {
                     id="password"
                     type="password"
                     variant="outlined"
-                    onChange={handleBlur}
+                    onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.password}
                     error={touched.password && Boolean(errors.password)}
@@ -120,18 +129,20 @@ const Login = () => {
               </Form>
             )}
           </Formik>
+
           <Box sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/register">Do you have not an account?</Link>
           </Box>
         </Grid>
-        <Grid item xs={10} sm={10} md={6}>
+
+        <Grid item xs={10} sm={7} md={6}>
           <Container>
             <img src={image} alt="img" />
           </Container>
         </Grid>
       </Grid>
     </Container>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
