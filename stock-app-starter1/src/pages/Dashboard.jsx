@@ -13,7 +13,7 @@ import { useSelector } from "react-redux"
 import useApiRequests from "../services/useApiRequests"
 import MenuListItems from "../component/MenuListItems"
 import { Outlet } from "react-router-dom"
-const drawerWidth = 240
+const drawerWidth = 200
 
 function ResponsiveDrawer(props) {
   const { username } = useSelector((state) => state.auth)
@@ -99,7 +99,12 @@ function ResponsiveDrawer(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              backgroundColor: "secondary.main",
+              color: "white",
             },
+            // "& .MuiSvgIcon-root": {
+            //   color: "white",
+            // },
           }}
         >
           {drawer}
@@ -111,7 +116,12 @@ function ResponsiveDrawer(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              backgroundColor: "secondary.main",
+              color: "white",
             },
+            // "& .MuiSvgIcon-root": {
+            //   color: "white",
+            // },
           }}
           open
         >
