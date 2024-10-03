@@ -1,5 +1,5 @@
-import { useEffect } from "react"
-import useStockRequests from "../services/useStockRequests"
+import { useEffect } from "react";
+import useStockRequests from "../services/useStockRequests";
 // import { useSelector } from "react-redux"
 // import axios from "axios"
 
@@ -18,17 +18,17 @@ const Firms = () => {
   // const { token } = useSelector((state) => state.auth)
   // const { getFirms, getSales } = useStockRequests()
 
-  const { getStock } = useStockRequests()
+  const { getStock } = useStockRequests();
 
   //? Sayfa yüklendikten sonra firmları getir
   useEffect(() => {
     // getFirms()
     // getSales()
-    getStock("firms")
-    getStock("sales")
-  }, [])
+    getStock("firms");
+    getStock("sales");
+  }, []);
 
-  return <div>Firm</div>
-}
+  return <div>Firm</div>;
+};
 
-export default Firms
+export default Firms;
