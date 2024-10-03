@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography"
 import Button from "@mui/material/Button"
 import { useSelector } from "react-redux"
 import useApiRequests from "../services/useApiRequests"
-import MenuListItems from "../component/MenuListItems"
+import MenuListItems from "../components/MenuListItems"
 import { Outlet } from "react-router-dom"
 const drawerWidth = 200
 

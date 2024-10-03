@@ -6,7 +6,7 @@ import image from "../assets/result.svg"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
 import { Link } from "react-router-dom"
-import RegisterForm, { registerSchema } from "../component/RegisterForm"
+import RegisterForm, { registerSchema } from "../components/RegisterForm"
 import { Formik } from "formik"
 import useApiRequests from "../services/useApiRequests"
 
