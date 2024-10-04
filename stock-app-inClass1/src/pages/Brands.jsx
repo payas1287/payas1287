@@ -1,9 +1,13 @@
-
+import { useEffect } from "react";
+import useBrandsRequest from "../services/useBrandRequests";
 
 const Brands = () => {
-  return (
-    <div>Brands</div>
-  )
-}
+  const { getBrands } = useBrandsRequest();
 
-export default Brands
+  useEffect(() => {
+    getBrands("brands");
+  }, []);
+  return <div>Brand</div>;
+};
+
+export default Brands;
