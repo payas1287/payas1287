@@ -74,4 +74,4 @@ const Firms = () => {
   )
 }
 
-export default 
+export default Firms
