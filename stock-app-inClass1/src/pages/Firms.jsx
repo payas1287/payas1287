@@ -11,12 +11,15 @@ const Firms = () => {
   const { getStock } = useStockRequest();
   const { firms } = useSelector((state) => state.stock);
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   const initialState = { image: "", address: "", phone: "", name: "" };
   const [data, setData] = useState(initialState);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setData(initialState);
+  };
 
   //? Sayfa yüklendikten sonra firmaları getir.
   useEffect(() => {
@@ -37,7 +40,7 @@ const Firms = () => {
         data={data}
         setData={setData}
       />
-          <Grid container justifyContent={"center"} gap={2}>
+      <Grid container justifyContent={"center"} gap={2}>
         {firms?.map((firm, index) => (
           <Grid item key={index}>
             <FirmCard
@@ -53,4 +56,4 @@ const Firms = () => {
   );
 };
 
-export default Firms
+export default Firms;
