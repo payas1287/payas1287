@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  brands: "",
-  categories: "",
-  loading: "",
-  error: "",
+  brands: [],
+  categories: [],
+  loading: [],
+  error: [],
 };
 
 const brandsSlice = createSlice({

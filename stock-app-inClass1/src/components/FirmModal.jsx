@@ -1,8 +1,8 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
-import TextField from "@mui/material/TextField";
-import useStockRequests from "../services/useStockRequests";
+import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
+import Modal from "@mui/material/Modal"
+import TextField from "@mui/material/TextField"
+import useStockRequests from "../services/useStockRequests"
 
 const style = {
   position: "absolute",
@@ -14,25 +14,34 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
-};
+}
 
 export default function FirmModal({ open, handleClose, data, setData }) {
-  const { postStock, putStock } = useStockRequests();
+  //   const [open, setOpen] = React.useState(false)
+  //   const handleOpen = () => setOpen(true)
+  //   const handleClose = () => setOpen(false)
+  const { postStock, putStock } = useStockRequests()
+
   const handleChange = (e) => {
-    ReadableStreamDefaultReader({ ...data, [e.target.name]: e.target.value });
-  };
+    setData({ ...data, [e.target.name]: e.target.value })
+  }
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    if (data.id) {
-      putStock("firms", data);
+    if (data._id) {
+      //? put
+      putStock("firms", data)
     } else {
-      postStock("firms", data);
+      //? post
+      postStock("firms", data)
     }
-    setData({ image: "", address: "", phone: "", name: "" });
-    handleClose();
-  };
+    //? Reset form
+    setData({ image: "", address: "", phone: "", name: "" })
+    //? close modal
+    handleClose()
+  }
 
+  console.log(data)
   return (
     <div>
       <Modal
@@ -94,5 +103,5 @@ export default function FirmModal({ open, handleClose, data, setData }) {
         </Box>
       </Modal>
     </div>
-  );
+  )
 }
