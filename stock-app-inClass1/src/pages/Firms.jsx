@@ -1,48 +1,27 @@
-import { useEffect, useState } from "react"
-import useStockRequests from "../services/useStockRequests"
-
-import Typography from "@mui/material/Typography"
-import Button from "@mui/material/Button"
-import Grid from "@mui/material/Grid"
-import { useSelector } from "react-redux"
-import FirmCard from "../components/FirmCard"
-import FirmModal from "../components/FirmModal"
-// import { useSelector } from "react-redux"
-// import axios from "axios"
-
-// export const getFirms = async () => {
-//   try {
-//     const { data } = await axios(`${process.env.REACT_APP_BASE_URL}/firms`, {
-//       headers: { Authorization: `Token ${token}` },
-//     })
-//     console.log(data)
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
+import { useEffect, useState } from "react";
+import useStockRequest from "../services/useStockRequests";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import { useSelector } from "react-redux";
+import FirmCard from "../components/FirmCard";
+import FirmModal from "../components/FirmModal";
 
 const Firms = () => {
-  // const { token } = useSelector((state) => state.auth)
-  // const { getFirms, getSales } = useStockRequests()
+  const { getStock } = useStockRequest();
+  const { firms } = useSelector((state) => state.stock);
 
-  const { getStock } = useStockRequests()
-  const { firms } = useSelector((state) => state.stock)
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-  const [open, setOpen] = useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
+  const initialState = { image: "", address: "", phone: "", name: "" };
+  const [data, setData] = useState(initialState);
 
-  const initialState = { image: "", address: "", phone: "", name: "" }
-  const [data, setData] = useState(initialState)
-
-  //? Sayfa yüklendikten sonra firmları getir
+  //? Sayfa yüklendikten sonra firmaları getir.
   useEffect(() => {
-    // getFirms()
-    // getSales()
-    getStock("firms")
-  }, [])
-
-  console.log(firms)
+    getStock("firms");
+  }, []);
   return (
     <div>
       <Typography variant="h5" color={"error"} mb={2}>
@@ -58,7 +37,7 @@ const Firms = () => {
         data={data}
         setData={setData}
       />
-      <Grid container justifyContent={"center"} gap={2}>
+          <Grid container justifyContent={"center"} gap={2}>
         {firms?.map((firm, index) => (
           <Grid item key={index}>
             <FirmCard
@@ -71,7 +50,5 @@ const Firms = () => {
         ))}
       </Grid>
     </div>
-  )
-}
-
-export default Firms
+  );
+};
