@@ -24,7 +24,7 @@ const Firms = () => {
   //? Sayfa yüklendikten sonra firmaları getir.
   useEffect(() => {
     getStock("firms");
-  }, []);
+  }, [getStock]);
   return (
     <div>
       <Typography variant="h5" color={"error"} mb={2}>
