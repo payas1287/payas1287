@@ -52,3 +52,5 @@ const Firms = () => {
     </div>
   );
 };
+
+export default Firms
