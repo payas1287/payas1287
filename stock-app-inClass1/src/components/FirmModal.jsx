@@ -35,64 +35,64 @@ export default function FirmModal({ open, handleClose, data, setData }) {
 
   return (
     <div>
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <Box sx={style}>
-        <Box
-          sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-          component="form"
-          onSubmit={handleSubmit}
-        >
-          <TextField
-            label="Firm Name"
-            name="name"
-            id="name"
-            type="text"
-            variant="outlined"
-            value={data.name}
-            onChange={handleChange}
-            required
-          />
-          <TextField
-            label="Phone"
-            name="phone"
-            id="phone"
-            type="tel"
-            variant="outlined"
-            value={data.phone}
-            onChange={handleChange}
-            required
-          />
-          <TextField
-            label="Address"
-            name="address"
-            id="address"
-            type="text"
-            variant="outlined"
-            value={data.address}
-            onChange={handleChange}
-            required
-          />
-          <TextField
-            label="Image"
-            name="image"
-            id="image"
-            type="url"
-            variant="outlined"
-            value={data.image}
-            onChange={handleChange}
-            required
-          />
-          <Button variant="contained" type="submit">
-            Submit
-          </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Box
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+            component="form"
+            onSubmit={handleSubmit}
+          >
+            <TextField
+              label="Firm Name"
+              name="name"
+              id="name"
+              type="text"
+              variant="outlined"
+              value={data.name}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              label="Phone"
+              name="phone"
+              id="phone"
+              type="tel"
+              variant="outlined"
+              value={data.phone}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              label="Address"
+              name="address"
+              id="address"
+              type="text"
+              variant="outlined"
+              value={data.address}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              label="Image"
+              name="image"
+              id="image"
+              type="url"
+              variant="outlined"
+              value={data.image}
+              onChange={handleChange}
+              required
+            />
+            <Button variant="contained" type="submit">
+              Submit
+            </Button>
+          </Box>
         </Box>
-      </Box>
-    </Modal>
-  </div>
+      </Modal>
+    </div>
   );
 }
