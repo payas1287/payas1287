@@ -2,7 +2,12 @@ import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import Modal from "@mui/material/Modal"
 import TextField from "@mui/material/TextField"
+import InputLabel from "@mui/material/InputLabel"
+import MenuItem from "@mui/material/MenuItem"
+import FormControl from "@mui/material/FormControl"
+import Select from "@mui/material/Select"
 import useStockRequests from "../services/useStockRequests"
+import { useSelector } from "react-redux"
 
 const style = {
   position: "absolute",
@@ -17,31 +22,19 @@ const style = {
 }
 
 export default function FirmModal({ open, handleClose, data, setData }) {
-  //   const [open, setOpen] = React.useState(false)
-  //   const handleOpen = () => setOpen(true)
-  //   const handleClose = () => setOpen(false)
-  const { postStock, putStock } = useStockRequests()
+ 
+  const { postStock } = useStockRequests()
+  const { categories, brands } = useSelector((state) => state.stock)
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value })
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    if (data._id) {
-      //? put
-      putStock("firms", data)
-    } else {
-      //? post
-      postStock("firms", data)
-    }
-    //? Reset form
-    setData({ image: "", address: "", phone: "", name: "" })
-    //? close modal
+    postStock("products", data)
     handleClose()
   }
 
-  console.log(data)
   return (
     <div>
       <Modal
@@ -66,36 +59,25 @@ export default function FirmModal({ open, handleClose, data, setData }) {
               onChange={handleChange}
               required
             />
-            <TextField
-              label="Phone"
-              name="phone"
-              id="phone"
-              type="tel"
-              variant="outlined"
-              value={data.phone}
+            <FormControl fullWidth>
+              <InputLabel id="categoryId">Categories</InputLabel>
+              <Select
+              labelId="categoryId"
+              id="categoryId"
+              name="categpryId"
+              value={data.categoryId}
+              label="Categories"
               onChange={handleChange}
               required
-            />
-            <TextField
-              label="Address"
-              name="address"
-              id="address"
-              type="text"
-              variant="outlined"
-              value={data.address}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              label="Image"
-              name="image"
-              id="image"
-              type="url"
-              variant="outlined"
-              value={data.image}
-              onChange={handleChange}
-              required
-            />
+              >
+                {categiries.map((item)=> (
+                  <MenuItem key={item._id} value={item._id}>
+                    {item.name}
+                  </MenuItem>
+                ))}
+
+              </Select>
+            </FormControl>
             <Button variant="contained" type="submit">
               Submit
             </Button>
