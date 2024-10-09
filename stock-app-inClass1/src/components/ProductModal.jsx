@@ -21,14 +21,14 @@ const style = {
   p: 4,
 }
 
-export default function FirmModal({ open, handleClose, data, setData }) {
- 
+export default function ProductModal({ open, handleClose, data, setData }) {
   const { postStock } = useStockRequests()
   const { categories, brands } = useSelector((state) => state.stock)
-
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value })
+    console.log(e.target.name)
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     postStock("products", data)
@@ -49,6 +49,44 @@ export default function FirmModal({ open, handleClose, data, setData }) {
             component="form"
             onSubmit={handleSubmit}
           >
+            <FormControl fullWidth>
+              <InputLabel id="categoryId">Categories</InputLabel>
+              <Select
+                labelId="categoryId"
+                id="categoryId"
+                name="categoryId"
+                value={data.categoryId}
+                label="Categories"
+                onChange={handleChange}
+                required
+              >
+                {categories.map((item) => (
+                  <MenuItem key={item._id} value={item._id}>
+                    {item.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            <FormControl fullWidth>
+              <InputLabel id="brands">Brands</InputLabel>
+              <Select
+                labelId="brands"
+                id="brandId"
+                name="brandId"
+                value={data.brandId}
+                label="brands"
+                onChange={handleChange}
+                required
+              >
+                {brands.map((item) => (
+                  <MenuItem key={item._id} value={item._id}>
+                    {item.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
             <TextField
               label="Firm Name"
               name="name"
@@ -59,27 +97,9 @@ export default function FirmModal({ open, handleClose, data, setData }) {
               onChange={handleChange}
               required
             />
-            <FormControl fullWidth>
-              <InputLabel id="categoryId">Categories</InputLabel>
-              <Select
-              labelId="categoryId"
-              id="categoryId"
-              name="categpryId"
-              value={data.categoryId}
-              label="Categories"
-              onChange={handleChange}
-              required
-              >
-                {categories.map((item)=> (
-                  <MenuItem key={item._id} value={item._id}>
-                    {item.name}
-                  </MenuItem>
-                ))}
 
-              </Select>
-            </FormControl>
             <Button variant="contained" type="submit">
-              Submit
+              ADD PRODUCT
             </Button>
           </Box>
         </Box>

@@ -8,7 +8,6 @@ import ProductTable from "../components/ProductTable";
 const Products = () => {
   const { getStock } = useStockRequest();
 
-
   const initialState = { image: "", address: "", phone: "", name: "" };
   const [data, setData] = useState(initialState);
 

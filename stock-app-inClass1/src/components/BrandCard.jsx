@@ -1,32 +1,57 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Typography, Box, Grid, Button } from "@mui/material"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import BrandCard from "../components/BrandCard"
+import BrandModal from "../components/BrandModal"
+import useStockRequests from "../services/useStockRequests"
 
-export default function MediaCard() {
+const Brands = () => {
+  const { getStock } = useStockRequests()
+  const { brands } = useSelector((state) => state.stock)
+
+  const [data, setData] = useState({ name: "", image: "" })
+
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => {
+    setOpen(false)
+    setData({ name: "", image: "" })
+  }
+
+  useEffect(() => {
+    getStock("brands")
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
+    <Box>
+      <Typography variant="h4" color="error" mb={2}>
+        Brands
+      </Typography>
+
+      <Button variant="contained" onClick={handleOpen}>
+        New Brand
+      </Button>
+
+      <Grid container gap={2} mt={3} justifyContent={"center"}>
+        {brands?.map((brand) => (
+          <Grid item key={brand._id}>
+            <BrandCard
+              brand={brand}
+              handleOpen={handleOpen}
+              setData={setData}
+            />
+          </Grid>
+        ))}
+      </Grid>
+
+      <BrandModal
+        open={open}
+        handleClose={handleClose}
+        data={data}
+        setData={setData}
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-  );
+    </Box>
+  )
 }
+
+export default Brands
