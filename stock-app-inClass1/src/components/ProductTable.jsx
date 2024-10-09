@@ -54,8 +54,8 @@ export default function ProductTable() {
       field: "actions",
       type: "actions",
       headerName: "Operations",
+
       getActions: (props) => {
-        // console.log(props)
         return [
           <GridActionsCellItem
             icon={<DeleteIcon />}
