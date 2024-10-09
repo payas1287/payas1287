@@ -70,7 +70,7 @@ export default function FirmModal({ open, handleClose, data, setData }) {
               onChange={handleChange}
               required
               >
-                {categiries.map((item)=> (
+                {categories.map((item)=> (
                   <MenuItem key={item._id} value={item._id}>
                     {item.name}
                   </MenuItem>
