@@ -1,14 +1,57 @@
-import { useEffect } from "react";
-import useStockRequests from "../services/useStockRequests";
-
+import { Typography, Box, Grid, Button } from "@mui/material"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import BrandCard from "../components/BrandCard"
+import BrandModal from "../components/BrandModal"
+import useStockRequests from "../services/useStockRequests"
 
 const Brands = () => {
-  const { getBrands } = useStockRequests();
+  const { getStock } = useStockRequests()
+  const { brands } = useSelector((state) => state.stock)
+
+  const [data, setData] = useState({ name: "", image: "" })
+
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => {
+    setOpen(false)
+    setData({ name: "", image: "" })
+  }
 
   useEffect(() => {
-    getBrands("brands");
-  }, [getBrands]);
-  return <div>Brand</div>;
-};
+    getStock("brands")
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-export default Brands;
+  return (
+    <Box>
+      <Typography variant="h4" color="error" mb={2}>
+        Brands
+      </Typography>
+
+      <Button variant="contained" onClick={handleOpen}>
+        New Brand
+      </Button>
+
+      <Grid container gap={2} mt={3} justifyContent={"center"}>
+        {brands?.map((brand) => (
+          <Grid item key={brand._id}>
+            <BrandCard
+              brand={brand}
+              handleOpen={handleOpen}
+              setData={setData}
+            />
+          </Grid>
+        ))}
+      </Grid>
+
+      <BrandModal
+        open={open}
+        handleClose={handleClose}
+        data={data}
+        setData={setData}
+      />
+    </Box>
+  )
+}
+
+export default Brands

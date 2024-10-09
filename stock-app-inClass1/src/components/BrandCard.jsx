@@ -1,57 +1,52 @@
-import { Typography, Box, Grid, Button } from "@mui/material"
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import BrandCard from "../components/BrandCard"
-import BrandModal from "../components/BrandModal"
+import * as React from "react"
+import Card from "@mui/material/Card"
+import CardActions from "@mui/material/CardActions"
+import CardMedia from "@mui/material/CardMedia"
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline"
+import EditIcon from "@mui/icons-material/Edit"
+import { CardHeader } from "@mui/material"
 import useStockRequests from "../services/useStockRequests"
+import { butonStyle } from "../style/globalStyles"
 
-const Brands = () => {
-  const { getStock } = useStockRequests()
-  const { brands } = useSelector((state) => state.stock)
-
-  const [data, setData] = useState({ name: "", image: "" })
-
-  const [open, setOpen] = useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => {
-    setOpen(false)
-    setData({ name: "", image: "" })
-  }
-
-  useEffect(() => {
-    getStock("brands")
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+const BrandCard = ({ brand, handleOpen, setData }) => {
+  const { deleteStock } = useStockRequests()
 
   return (
-    <Box>
-      <Typography variant="h4" color="error" mb={2}>
-        Brands
-      </Typography>
+    <Card
+      elevation={10}
+      sx={{
+        p: 2,
+        width: "300px",
+        height: "400px",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <CardHeader title={brand?.name} />
 
-      <Button variant="contained" onClick={handleOpen}>
-        New Brand
-      </Button>
-
-      <Grid container gap={2} mt={3} justifyContent={"center"}>
-        {brands?.map((brand) => (
-          <Grid item key={brand._id}>
-            <BrandCard
-              brand={brand}
-              handleOpen={handleOpen}
-              setData={setData}
-            />
-          </Grid>
-        ))}
-      </Grid>
-
-      <BrandModal
-        open={open}
-        handleClose={handleClose}
-        data={data}
-        setData={setData}
+      <CardMedia
+        image={brand?.image}
+        sx={{ p: 1, objectFit: "contain", height: "250px" }}
+        component="img"
+        alt="brand-img"
       />
-    </Box>
+
+      <CardActions>
+        <EditIcon
+          sx={butonStyle}
+          onClick={() => {
+            setData(brand)
+            handleOpen()
+          }}
+        />
+        <DeleteOutlineIcon
+          sx={butonStyle}
+          onClick={() => deleteStock("brands", brand._id)}
+        />
+      </CardActions>
+    </Card>
   )
 }
 
-export default Brands
+export default BrandCard
