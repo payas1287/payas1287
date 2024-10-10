@@ -9,9 +9,9 @@ const useApiRequests = () => {
     const navigate = useNavigate()
     const login = async (userData)=>{
         
-        const BASE_URL = "https://13156.fullstack.clarusway.com/"
+       
        try {
-        const { data } = await axios.post(`${BASE_URL}/auth/login`, userData)
+        const { data } = await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, userData)
         toastSuccessNotify("Login başarılı")
         navigate("stock")
         console.log(data)
