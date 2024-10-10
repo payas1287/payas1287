@@ -9,10 +9,8 @@ import {
   logoutSuccess,
   registerSuccess,
 } from "../features/authSlice";
-//? Main commnet
-//? Custom hook
-//? Custom hook uygulamanın tüm her yerinde kullanılmak istenen fonksiyonlarını varsa ve
-//? bu yfonksiyonlar işçerisnide Hook çağırmak istyioirsanız Custom Hook yazmak gereklidir.
+
+
 const useApiRequests = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
