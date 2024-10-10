@@ -27,6 +27,6 @@ state.username = payload.user.username
 },
 })
 
-export const {fetchStart, fetchFail, loginSucces} = authSlice.actions
+export const {fetchStart, fetchFail, loginSuccess} = authSlice.actions
 
 export default authSlice.reducer
