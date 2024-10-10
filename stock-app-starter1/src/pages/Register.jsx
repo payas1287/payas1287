@@ -1,17 +1,16 @@
-import Container from "@mui/material/Container"
-import Typography from "@mui/material/Typography"
-import Avatar from "@mui/material/Avatar"
-import LockIcon from "@mui/icons-material/Lock"
-import image from "../assets/result.svg"
-import Grid from "@mui/material/Grid"
-import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
-import { Link, useNavigate } from "react-router-dom"
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
+import LockIcon from "@mui/icons-material/Lock";
+import image from "../assets/result.svg";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
-import TextField from "@mui/material/TextField"
+import TextField from "@mui/material/TextField";
 
 const Register = () => {
-  const navigate = useNavigate()
 
   return (
     <Container maxWidth="lg">
@@ -107,7 +106,7 @@ const Register = () => {
         </Grid>
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;
