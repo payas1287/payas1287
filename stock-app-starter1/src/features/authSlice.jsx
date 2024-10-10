@@ -10,9 +10,23 @@ const authSlice = createSlice ({
     loading:"",
     error: "",
   },
-  reducers: {},
+  reducers: {
+    fetchStart: (state) =>
+ {
+  state.loading = true
+ }, 
+ loginSucces: (state, {payload}) => {
+state.token = payload.token
+state.username = payload.user.username
+ },
+ fetchFail: (state) => {
+  state.loading = false
+  state.error = true
+ },
+ 
+},
 })
 
-export const {} = authSlice.actions
+export const {login} = authSlice.actions
 
 export default authSlice.reducer
