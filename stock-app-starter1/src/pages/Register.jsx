@@ -8,8 +8,10 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
+import useApiRequests from "../services/useApiRequests";
 
 const Register = () => {
+  const {register} = useApiRequests
 
   return (
     <Container maxWidth="lg">
