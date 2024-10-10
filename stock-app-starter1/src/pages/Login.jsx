@@ -13,8 +13,14 @@ import { object, string } from "yup";
 
 const Login = () => {
   const loginSchema = object({
-    password: string().required(),
-    email: string().email("Lütfen geçerli email giriniz"),
+    password: string()
+      .required()
+      .min(8)
+      .max(16)
+      .matches(/[a-z]+/)
+      .matches(/[A-Z]+/)
+      .matches(/[*!€$%&/()=]+/),
+    email: string().required().email(),
   });
   return (
     <Container maxWidth="lg">
@@ -61,7 +67,14 @@ const Login = () => {
               actions.setSubmitting(false);
             }}
           >
-            {({ isSubmitting, handleChange, values, touched, errors }) => (
+            {({
+              isSubmitting,
+              handleChange,
+              values,
+              touched,
+              errors,
+              handleBlur,
+            }) => (
               <Form>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
@@ -73,7 +86,8 @@ const Login = () => {
                     onChange={handleChange}
                     value={values.email}
                     error={touched.email && Boolean(errors.email)}
-                    helperText={errors.email}
+                    helperText={touched.email && errors.email}
+                    onBlur={handleBlur}
                   />
                   <TextField
                     label="password"
@@ -83,8 +97,9 @@ const Login = () => {
                     variant="outlined"
                     onChange={handleChange}
                     value={values.password}
-                    error={touched.email && Boolean(errors.email)}
-                    helperText={errors.password}
+                    error={touched.password && Boolean(errors.password)}
+                    helperText={touched.password && errors.password}
+                    onBlur={handleBlur}
                   />
                   <Button
                     variant="contained"
