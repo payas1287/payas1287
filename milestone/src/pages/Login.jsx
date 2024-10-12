@@ -9,7 +9,6 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import Dashboard from "./Dashboard";
 
-
 const Login = () => {
   return (
     <Container maxWidth="lg">
@@ -36,18 +35,13 @@ const Login = () => {
           >
             <LockIcon size="30" />
           </Avatar>
-          <Typography
-            variant="h4"
-            align="center"
-            mb={4}
-            color="orange"
-          >
+          <Typography variant="h4" align="center" mb={4} color="orange">
             Login
           </Typography>
 
           <Box
             component="form"
-            sx={{ display: "flex", flexDirection: "column", gap: 2}}
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
           >
             <TextField
               label="Email"
@@ -63,7 +57,11 @@ const Login = () => {
               type="password"
               variant="outlined"
             />
-            <Button variant="contained" type="submit" sx={{backgroundColor: "orangered"}}>
+            <Button
+              variant="contained"
+              type="submit"
+              sx={{ backgroundColor: "orangered" }}
+            >
               Submit
             </Button>
           </Box>
