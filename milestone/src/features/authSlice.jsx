@@ -1,39 +1,39 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const authSlice = createSlice({
   name: "auth",
 
   initialState: {
     token: "",
-    username:"",
-    loading : "",
+    username: "",
+    loading: "",
     error: "",
-},
+  },
   reducers: {
     fetchStart: (state) => {
-      state.loading = true
+      state.loading = true;
     },
     loginSuccess: (state, { payload }) => {
-      state.token = payload.token
-      state.username = payload.user.username
-      state.loading = false
+      state.token = payload.token;
+      state.username = payload.user.username;
+      state.loading = false;
     },
     registerSuccess: (state, { payload }) => {
-      state.loading = false
-      state.username = payload.data.username
-      state.token = payload.token
+      state.loading = false;
+      state.username = payload.data.username;
+      state.token = payload.token;
     },
     logoutSuccess: (state) => {
-      state.loading = false
-      state.username = ""
-      state.token = ""
+      state.loading = false;
+      state.username = "";
+      state.token = "";
     },
     fetchFail: (state) => {
-      state.loading = false
-      state.error = true
+      state.loading = false;
+      state.error = true;
     },
   },
-})
+});
 
 export const {
   fetchStart,
@@ -41,5 +41,5 @@ export const {
   registerSuccess,
   logoutSuccess,
   fetchFail,
-} = authSlice.actions
-export default authSlice.reducer
+} = authSlice.actions;
+export default authSlice.reducer;
