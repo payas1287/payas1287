@@ -37,7 +37,7 @@ function Dashboard() {
   };
 
   return (
-    <AppBar position="static" sx={{backgroundColor: "orangered", color: "pink"}}>
+    <AppBar position="static" sx={{backgroundColor: "orangered"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

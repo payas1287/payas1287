@@ -1,16 +1,34 @@
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
-import LockIcon from "@mui/icons-material/Lock";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import LockIcon from "@mui/icons-material/Lock";
 import { Link } from "react-router-dom";
-import RegisterForm, { registerSchema } from "../components/auth/LoginForm";
-import { Formik } from "formik";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
+import { Formik, Form } from "formik";
+import { object, string } from "yup";
+import Dashboard from "../pages/Dashboard"
 
 
-const Register = () => {
+const Login = () => {
+  const loginSchema = object({
+    password: string()
+      .required("Şifre zorunludur")
+      .min(8, "Şifre en az 8 karekter içermelidir")
+      .max(16, "Şifre en fazla 16 karekter içermelidir")
+      .matches(/[a-z]+/, "Şifre en az bir küçük harf içermelidir")
+      .matches(/[A-Z]+/, "Şifre en az bir büyük harf içermelidir")
+      .matches(
+        /[@$!%*?&]+/,
+        "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
+      ),
 
+    email: string()
+      .email("Lütfen geçerli email giriniz")
+      .required("Email zorunludur"),
+  });
 
   return (
     <Container maxWidth="lg">
@@ -18,18 +36,12 @@ const Register = () => {
         container
         justifyContent="center"
         direction="row-reverse"
-        rowSpacing={{ sm: 3 }}
         sx={{
           height: "100vh",
           p: 2,
         }}
       >
-        <Grid item xs={12}>
-          <Typography variant="h3" color="primary" align="center">
-            STOCK APP
-          </Typography>
-        </Grid>
-
+        <Dashboard />
         <Grid item xs={12} sm={10} md={6}>
           <Avatar
             sx={{
@@ -44,31 +56,68 @@ const Register = () => {
           <Typography
             variant="h4"
             align="center"
-            mb={2}
+            mb={4}
             color="secondary.light"
           >
-            Register
+            Login
           </Typography>
 
           <Formik
-            initialValues={{
-              username: "",
-              firstName: "",
-              lastName: "",
-              email: "",
-              password: "",
-            }}
-            validationSchema={registerSchema}
+            initialValues={{ email: "", password: "" }}
+            validationSchema={loginSchema}
             onSubmit={(values, actions) => {
-            
               actions.resetForm();
-              actions.setSubmitting(false);
+              actions.setSubmitting(false); //? isSubmitting (Boolean)
             }}
-            component={(props) => <RegisterForm {...props} />}
-          ></Formik>
+          >
+            {({
+              isSubmitting,
+              handleChange,
+              handleBlur,
+              values,
+              touched,
+              errors,
+            }) => (
+              <Form>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                  <TextField
+                    label="Email"
+                    name="email"
+                    id="email"
+                    type="email"
+                    variant="outlined"
+                    onChange={handleChange}
+                    value={values.email}
+                    error={touched.email && Boolean(errors.email)}
+                    onBlur={handleBlur}
+                    helperText={errors.email}
+                  />
+                  <TextField
+                    label="password"
+                    name="password"
+                    id="password"
+                    type="password"
+                    variant="outlined"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                    error={touched.password && Boolean(errors.password)}
+                    helperText={errors.password}
+                  />
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    Submit
+                  </Button>
+                </Box>
+              </Form>
+            )}
+          </Formik>
 
           <Box sx={{ textAlign: "center", mt: 2 }}>
-            <Link to="/">Do you have an account?</Link>
+            <Link to="/register">Do you have not an account?</Link>
           </Box>
         </Grid>
       </Grid>
@@ -76,4 +125,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
