@@ -11,14 +11,14 @@ const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route path="about" element={<About />} />
-        <Route path="newblog" element={<NewBlog />} />
         <Route path="/" element={<Dashboard />} />
         <Route oatah="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="detail" element={<PrivateRouter />}>
           <Route path="" element={<Detail />} />{" "}
         </Route>
+        <Route path="about" element={<About />} />
+        <Route path="newblog" element={<NewBlog />} />
       </Routes>
     </Router>
   );
