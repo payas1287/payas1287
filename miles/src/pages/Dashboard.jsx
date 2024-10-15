@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 
 const pages = ["Dashboard", "New Blog", "About"];
-const settings = ["Dashboard", "New Blog", "About"];
+const settings = ["My Blogs", "Profile", "Logout"];
 
 function Dashboard() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

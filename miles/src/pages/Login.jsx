@@ -9,7 +9,6 @@ import TextField from "@mui/material/TextField"
 import { Button } from "@mui/material"
 import { Formik, Form } from "formik"
 import { object, string } from "yup"
-import Dashboard from "../pages/Dashboard"
 
 
 const Login = () => {
@@ -43,7 +42,6 @@ const Login = () => {
           p: 2,
         }}
       >
-        <Dashboard />
         <Grid item xs={12} mb={3}>
           <Typography variant="h3" color="primary" align="center">
             Yours Blog
