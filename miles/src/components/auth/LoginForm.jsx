@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import { Form } from "formik";
 import { object, string } from "yup";
 
-export const registerSchema = object({
+export const loginSchema = object({
   email: string()
     .email("Lütfen geçerli bir email giriniz.")
     .required("Email zorunludur"),

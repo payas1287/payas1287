@@ -18,6 +18,7 @@ export const registerSchema = object({
   email: string()
     .email("Lütfen geçerli bir email giriniz.")
     .required("Email zorunludur"),
+  image: string().required().url(),
   password: string()
     .required("Şifre zorunludur")
     .min(8, "Şifre en az 8 karakter olmalıdır")
@@ -85,6 +86,30 @@ const RegisterForm = ({
           onBlur={handleBlur}
           error={touched.email && Boolean(errors.email)}
           helperText={errors.email}
+        />
+        <TextField
+          label="Image"
+          name="image"
+          id="image"
+          type="image"
+          variant="outlined"
+          value={values.image}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.image && Boolean(errors.image)}
+          helperText={errors.image}
+        />
+        <TextField
+          label="Bio"
+          name="bio"
+          id="bio"
+          type="bio"
+          variant="outlined"
+          value={values.bio}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.bio && Boolean(errors.bio)}
+          helperText={errors.bio}
         />
         <TextField
           label="password"
