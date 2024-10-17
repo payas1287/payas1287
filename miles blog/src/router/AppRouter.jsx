@@ -4,6 +4,9 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 
+
+
+
 const AppRouter = () => {
   return (
     <Router>
@@ -12,7 +15,6 @@ const AppRouter = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="newblog" element={<NewBlog />} />
-      
       </Routes>
     </Router>
   );

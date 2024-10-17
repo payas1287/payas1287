@@ -1,17 +1,18 @@
-import Container from "@mui/material/Container"
-import Typography from "@mui/material/Typography"
-import Avatar from "@mui/material/Avatar"
-import LockIcon from "@mui/icons-material/Lock"
-import image from "../assets/result.svg"
-import Grid from "@mui/material/Grid"
-import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
-import { Link } from "react-router-dom"
-import TextField from "@mui/material/TextField"
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
+import LockIcon from "@mui/icons-material/Lock";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import Dashboard from "./Dashboard";
 
 const Register = () => {
   return (
     <Container maxWidth="lg">
+      <Dashboard />
       <Grid
         container
         justifyContent="center"
@@ -20,11 +21,12 @@ const Register = () => {
         sx={{
           height: "100vh",
           p: 2,
+          my: 15,
         }}
       >
         <Grid item xs={12}>
           <Typography variant="h3" color="primary" align="center">
-            STOCK APP
+            Blog App
           </Typography>
         </Grid>
 
@@ -96,15 +98,9 @@ const Register = () => {
             <Link to="/">Do you have an account?</Link>
           </Box>
         </Grid>
-
-        <Grid item xs={0} sm={7} md={6}>
-          <Container>
-            <img src={image} alt="" />
-          </Container>
-        </Grid>
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

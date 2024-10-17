@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Card } from '@mui/material';
 
 
 const pages = ['Dashboard', 'New Blog', 'About'];
@@ -118,6 +119,7 @@ function Dashboard() {
           </Box>
         </Toolbar>
       </Container>
+      <Card />
     </AppBar>
   );
 }
