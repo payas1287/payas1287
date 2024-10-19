@@ -56,5 +56,3 @@ class Person2 {
         private readonly id: string) {
     }
 }
-let mark = new Person("Mark", "Madison", "5");
-console.log(mark);

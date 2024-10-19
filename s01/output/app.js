@@ -31,3 +31,10 @@ class Person1 {
         return `${this.firstName} ${this.lastName}`;
     }
 }
+class Person2 {
+    constructor(firstName, lastName, id) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = id;
+    }
+}
