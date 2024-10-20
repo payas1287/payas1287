@@ -38,3 +38,5 @@ class Person2 {
         this.id = id;
     }
 }
+const b = (x, y) => x * y;
+console.log(b(5, 3));

@@ -56,3 +56,7 @@ class Person2 {
         private readonly id: string) {
     }
 }
+
+
+const b = (x,y)=>x*y
+console.log(b(5,3))
