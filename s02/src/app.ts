@@ -40,6 +40,23 @@ let car2: Car = "Audi"
 // let car3: Car = "Fiat"  // compiler error
 let car4: Car = 2022
 
+
+
+//* Object
+
+const car: {
+    type: string,
+    model: string,
+    readonly year: number,
+} = {
+    type: "Honda",
+    model: "CRV",
+    year: 2020,
+    // hatchback: true  //compiler error
+}
+// car.year = 2023 //readonly error
+
+
 //*Intersection
 
 
@@ -59,3 +76,23 @@ const elevatedUser: SuperUser = {
     privileges: ['start-database'],
 };
 
+type Book = {
+    book_id: number,
+    book_name: string
+}
+
+type Author = {
+    author_id: number,
+    author_name: string
+}
+
+
+type Sales = Book & Author 
+
+let sale1: Sales = {
+    author_id: 123,
+    book_id: 456,
+    book_name: "Return of the King",
+    author_name: "Tolkein",
+    // price 200 // compiler error
+}
