@@ -87,7 +87,7 @@ type Author = {
 }
 
 
-type Sales = Book & Author 
+type Sales = Book & Author
 
 let sale1: Sales = {
     author_id: 123,
@@ -117,7 +117,7 @@ console.log((someValue2 as string).length)
 
 //* Functions
 
-function selamla (mesaj: string, isim: string = 'konuk') : string {
+function selamla(mesaj: string, isim: string = 'konuk'): string {
     // if(!isim) isim = "Konuk"
     return mesaj + ' ' + isim
 }
@@ -131,22 +131,52 @@ console.log(selamla("Merhaba", "Dünya"))
 //* Arrow Function
 
 
-let topla = (a:number, b:number):number=>a+b 
+let topla = (a: number, b: number): number => a + b
 
 //* Functions - Overloading
 
-function add (a:string, b:string):string
-function add (a:number, b:number):number
-function add (a:any, b:any):any{
+function add(a: string, b: string): string
+function add(a: number, b: number): number
+function add(a: any, b: any): any {
     return a + b
 }
 
 //* Rest Parameters
 
-function add1(num: number, ...numbers:number[]):void{
+function add1(num: number, ...numbers: number[]): void {
     let total = num;
-    numbers.forEach(number=> total+=number)
+    numbers.forEach(number => total += number)
     console.log(total)
 }
 add1(1)
-add1(1,2,3,4,5)
+add1(1, 2, 3, 4, 5)
+
+
+//* Interface
+
+interface Color {
+    color: { r: number, g: number, b: number };
+}
+const red: Color = { color: { r: 255, g: 0, b: 0 } }
+
+
+interface Shape {
+    area: number;
+}
+
+class Square implements Color, Shape {
+    constructor(public color: { r: number, g: number, b: number }, public area: number) { }
+}
+const sq1 = new Square({ r: 255, g: 0, b: 0 }, 255)
+console.log(sq1)
+
+//* Generic
+
+function getArray<T>(items:T[]): T[]{
+    return new Array().concat(items)
+}
+
+let numArr = getArray([1,2,3,4])
+let strArr = getArray(["John", "Mike", "Alan"])
+// strArr.push(3) //error
+// numArr.push("Sally") //error

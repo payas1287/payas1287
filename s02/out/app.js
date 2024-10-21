@@ -68,3 +68,20 @@ function add1(num, ...numbers) {
 }
 add1(1);
 add1(1, 2, 3, 4, 5);
+const red = { color: { r: 255, g: 0, b: 0 } };
+class Square {
+    constructor(color, area) {
+        this.color = color;
+        this.area = area;
+    }
+}
+const sq1 = new Square({ r: 255, g: 0, b: 0 }, 255);
+console.log(sq1);
+//* Generic
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArr = getArray([1, 2, 3, 4]);
+let strArr = getArray(["John", "Mike", "Alan"]);
+// strArr.push(3) //error
+// numArr.push("Sally") //error
