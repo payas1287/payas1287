@@ -77,7 +77,7 @@ const elevatedUser: SuperUser = {
 };
 
 type Book = {
-    book_id: number,
+    readonly book_id: number,
     book_name: string
 }
 
@@ -96,3 +96,57 @@ let sale1: Sales = {
     author_name: "Tolkein",
     // price 200 // compiler error
 }
+
+// sale1.book_id = 1 // compiler error
+
+//* Type Assertions
+
+// let someValue: unknown = "this is a string"
+// console.log(someValue.length) // object is type of 'unknown'
+
+let someValue1: unknown = "this is a string"
+console.log((<string>someValue1).length)
+
+let someValue2: unknown = "this is a string"
+console.log((someValue2 as string).length)
+
+// console.log(someValue2.length) // compiler error
+
+
+
+
+//* Functions
+
+function selamla (mesaj: string, isim: string = 'konuk') : string {
+    // if(!isim) isim = "Konuk"
+    return mesaj + ' ' + isim
+}
+
+console.log(selamla("Merhaba", "Dünya"))
+// console.log(selamla ("Merhaba", 2024)), // compiler error
+// console.log(selamla ("Merhaba"), // compiler error)
+// selamla ("Merhaba", "dünya", 2024) // compiler error
+
+
+//* Arrow Function
+
+
+let topla = (a:number, b:number):number=>a+b 
+
+//* Functions - Overloading
+
+function add (a:string, b:string):string
+function add (a:number, b:number):number
+function add (a:any, b:any):any{
+    return a + b
+}
+
+//* Rest Parameters
+
+function add1(num: number, ...numbers:number[]):void{
+    let total = num;
+    numbers.forEach(number=> total+=number)
+    console.log(total)
+}
+add1(1)
+add1(1,2,3,4,5)

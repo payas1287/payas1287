@@ -37,3 +37,34 @@ let sale1 = {
     author_name: "Tolkein",
     // price 200 // compiler error
 };
+// sale1.book_id = 1 // compiler error
+//* Type Assertions
+// let someValue: unknown = "this is a string"
+// console.log(someValue.length) // object is type of 'unknown'
+let someValue1 = "this is a string";
+console.log(someValue1.length);
+let someValue2 = "this is a string";
+console.log(someValue2.length);
+// console.log(someValue2.length) // compiler error
+//* Functions
+function selamla(mesaj, isim = 'konuk') {
+    // if(!isim) isim = "Konuk"
+    return mesaj + ' ' + isim;
+}
+console.log(selamla("Merhaba", "Dünya"));
+// console.log(selamla ("Merhaba", 2024)), // compiler error
+// console.log(selamla ("Merhaba"), // compiler error)
+// selamla ("Merhaba", "dünya", 2024) // compiler error
+//* Arrow Function
+let topla = (a, b) => a + b;
+function add(a, b) {
+    return a + b;
+}
+//* Rest Parameters
+function add1(num, ...numbers) {
+    let total = num;
+    numbers.forEach(number => total += number);
+    console.log(total);
+}
+add1(1);
+add1(1, 2, 3, 4, 5);
