@@ -172,11 +172,117 @@ console.log(sq1)
 
 //* Generic
 
-function getArray<T>(items:T[]): T[]{
+function getArray<T>(items: T[]): T[] {
     return new Array().concat(items)
 }
 
-let numArr = getArray([1,2,3,4])
+let numArr = getArray([1, 2, 3, 4])
 let strArr = getArray(["John", "Mike", "Alan"])
 // strArr.push(3) //error
 // numArr.push("Sally") //error
+
+let employee: [number, string][];
+employee = [[1, "Steve"], [2, "Bill"], [3, "Jeff"]];
+employee.push([4, "Mark"])
+console.log(employee)
+
+enum Color1 {
+    Red, Green, Blue,
+}
+let selectedColor: Color1 = Color1.Green;
+console.log(selectedColor)
+
+let looselyTyped: any = 4;
+let arr: any[] = ["John", 212, true];
+
+let notSure: unknown = 4;
+notSure = "maybe a string instead";
+console.log(notSure)
+
+let unknownVAr: unknown
+
+unknownVAr = false;
+unknownVAr = 15;
+unknownVAr = "Hello World";
+unknownVAr = ["1", "2", "3", "4", "5"]
+unknownVAr = {userNAme: "admin", password: "123x"}
+unknownVAr = null
+unknownVAr = undefined
+
+// let value: unknown;
+// let newValue1: boolean = value;
+// let newValue2: number = value;
+// let newValue3: string = value;
+// let newValue4: object = value;
+// let newValue5: any[] = value;
+// let newValue6: Function = value;
+
+
+function warnUser(): void {
+    console.log("This is my warning message")
+}
+
+function error(message: string): never {
+    throw new Error(message)
+}
+
+console.log("S03")
+
+
+
+let code: string | number;
+code = 123;
+code = "ABC"
+// code = false;
+
+type Point = {
+    x: number;
+    y: number;
+};
+
+function printCoord(pt: Point) {
+    console.log("The coordinate's x value is " + pt.x);
+    console.log("The coordinate's y value is " + pt.y);
+}
+printCoord({x:100, y:100});
+
+type pet = "cat" | "dog";
+
+let pet3: pet = "cat";
+let pet4: pet = "dog";
+// let gator: pet = "horse";
+
+
+type User1 = {
+    id: number;
+    name: string
+};
+
+type Admin1 = {
+    privileges: string[];
+};
+
+type SuperUser1 = User & Admin;
+
+const elevatedUser2: SuperUser = {
+    id: 1,
+    name: "Mark",
+    privileges: ["start-database"],
+};
+
+
+// function Greet(greeting: string, name: string): string {
+//     return greeting + " " + name + "!"
+// }
+// Greet("Hello", "Steve");
+// Greet("Hi");
+// Greet ("Hi", "Bill", "Gates");
+
+
+// function Greet1(greeting: string, name?: string): string {
+//     return greeting + " " + name + "!"; 
+// }
+
+// Greet("Hello", "Steve");
+// Greet("Hi");
+// Greet("Hi", "Bill", "Gates")
