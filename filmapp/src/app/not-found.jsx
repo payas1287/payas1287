@@ -1,5 +1,5 @@
 "use client";
-//? next.js olmayan route'lar deafult 404 sayfası sunmaktadır. Default 404 sayfasını "not-found.js" ile override edebiliriz
+//? next.js olmayan route'lar deafult 404 sayfası sunmaktadır. Default 404 sayfasını "not-found.jsx" ile override edebiliriz
 
 import { useRouter } from "next/navigation";
 
